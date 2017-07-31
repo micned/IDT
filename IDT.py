@@ -1,9 +1,14 @@
 #!/usr/bin/env python
 
-##
-## Micky Koffarnus made this
-## Shorter discounting task with not-now trials (in scanner)
-##
+"""
+IDT: Individualized (Monetary) Discounting Task
+
+Copyright (C) 2017 - Mikhail Koffarnus (mickyk@vtc.vt.edu)
+
+Distributed under the terms of the GNU Lesser General Public License
+(LGPL). See LICENSE.TXT that came with this file.
+"""
+
 
 import csv
 import pygame
