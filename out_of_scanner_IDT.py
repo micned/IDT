@@ -44,7 +44,7 @@ else:
 
 exp = "OutOfScanner"
 delamount = 1000
-commodity = "$"
+commodity = "USD"
 
 tr_len = 2
 
@@ -70,13 +70,20 @@ iv=0
 subQ=-1
 krow=0
 blocknum=0
+
 # log file name
 if not os.path.exists('data'):
     os.makedirs('data')    
-if not os.path.exists('data\%s' % (sid)):
-    os.makedirs('data\%s' % (sid))
-log_filename = 'data\%s\AdjAmt_%s_%s_%i_%s_' % (sid, exp, sid, delamount, commodity) + time.strftime ('%m-%d-%Y_%Hh-%Mm.csv')
-pickle_filename = 'data\%s\AdjAmt_%s_%s.p' % (sid, sid, exp)
+if not os.path.exists(os.path.join('data', sid)):
+    os.makedirs(os.path.join('data', sid))
+
+filename='DiscScan_%s_%s_%d_%s_%s' % (str(sid), str(exp), int(delamount), str(commodity), time.strftime('%m-%d-%Y_%Hh-%Mm.csv'))
+log_filename = os.path.join('data', sid, filename)
+
+filename='AdjAmt_%s_OutOfScanner.p' % (sid)
+pickle_filename = os.path.join('data', sid, filename)
+
+
 shuffle(isi_array)
 isi_array=[0]+isi_array # no delay before first question
 isi = 0
@@ -113,6 +120,7 @@ if user32.GetSystemMetrics(0) < 1024:
     print "Horizontal screen resolution needs to be at least 1024."
     raw_input("Press enter to exit")
     sys.exit()    
+
 screen=VisionEgg.Core.Screen(size=(user32.GetSystemMetrics(0),user32.GetSystemMetrics(1)),fullscreen=True)
 screen.parameters.bgcolor = (0.0,0.0,0.0,0.0)
 d_screen_half_x = screen.size[0]/2
