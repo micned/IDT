@@ -1,8 +1,12 @@
 #!/usr/bin/env python
+"""
+IDT: Individualized (Monetary) Discounting Task
 
-##
-## Micky Koffarnus made this
-##
+Copyright (C) 2017 - 2017 Mikhail Koffarnus (mickyk@vtc.vt.edu)
+
+Distributed under the terms of the GNU Lesser General Public License
+(LGPL). See LICENSE.TXT that came with this file.
+"""
 
 import csv
 import pygame
