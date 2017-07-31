@@ -3,7 +3,7 @@
 """
 IDT: Individualized (Monetary) Discounting Task
 
-Copyright (C) 2017 - Mikhail Koffarnus (mickyk@vtc.vt.edu)
+Copyright (C) 2017 - 2017 Mikhail Koffarnus (mickyk@vtc.vt.edu)
 
 Distributed under the terms of the GNU Lesser General Public License
 (LGPL). See LICENSE.TXT that came with this file.
@@ -29,7 +29,7 @@ import Image, ImageDraw # Python Imaging Library (PIL)
 import sys
 import numpy
 from scipy.optimize import curve_fit
-import pickle
+#import pickle
 import os
 
 NEW_BLOCK_TIME=10
@@ -52,7 +52,7 @@ else:
 
 exp = "IDT"
 delamount = 1000
-commodity = "$"
+commodity = "USD"
 
 tr_len = 2
 
@@ -74,10 +74,14 @@ isi_index=0
 # log file name
 if not os.path.exists('data'):
     os.makedirs('data')    
-if not os.path.exists('data\\%s' % (sid)):
-    os.makedirs('data\\%s' % (sid))
-log_filename = 'data\\%s\\DiscScan_%s_%s_%i_%s_' % (sid, exp, sid, delamount, commodity) + time.strftime ('%m-%d-%Y_%Hh-%Mm.csv')
-pickle_filename = 'data\\%s\\AdjAmt_%s_OutOfScanner.p' % (sid, sid)
+if not os.path.exists(os.path.join('data', sid)):
+    os.makedirs(os.path.join('data', sid))
+
+filename='DiscScan_%s_%s_%d_%s_%s' % (str(sid), str(exp), int(delamount), str(commodity), time.strftime('%m-%d-%Y_%Hh-%Mm.csv'))
+log_filename = os.path.join('data', sid, filename)
+
+filename='AdjAmt_%s_OutOfScanner.p' % (sid)
+pickle_filename = os.path.join('data', sid, filename)
 
 if os.path.isfile(pickle_filename):
     S1data = pickle.load(open(pickle_filename, "rb"))
@@ -85,7 +89,7 @@ else:
     print " "
     print "No session 1 file found"
     raw_input("Press enter to exit")
-    sys.exit
+    sys.exit(1)
     
 if S1data[7] > 0.03542:
     delays=['1 day', '1 week', '1 month', '3 months']
@@ -149,7 +153,8 @@ if user32.GetSystemMetrics(0) < 1024:
     print " "
     print "Horizontal screen resolution needs to be at least 1024."
     raw_input("Press enter to exit")
-    sys.exit()    
+    sys.exit(1)    
+
 screen=VisionEgg.Core.Screen(size=(user32.GetSystemMetrics(0),user32.GetSystemMetrics(1)),fullscreen=True)
 #screen=VisionEgg.Core.Screen(size=(1024,768),fullscreen=False)
 screen.parameters.bgcolor = (0.0,0.0,0.0,0.0)
