@@ -3,3 +3,15 @@
 *.swp
 *.swo
 *~
+
+# data directory #
+##################
+data/
+
+# Vision Egg logs #
+###################
+VisionEgg.log
+
+
+
+
