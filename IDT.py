@@ -50,7 +50,7 @@ else:
     #delamount = int(sys.argv[3])
     #commodity = sys.argv[4]
 
-exp = "TaskC"
+exp = "IDT"
 delamount = 1000
 commodity = "$"
 
