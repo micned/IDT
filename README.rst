@@ -1,6 +1,6 @@
-===================================
-IDT: Individualized Discouting Task
-===================================
+====================================
+IDT: Individualized Discounting Task
+====================================
 
 The *IDT* is an adaptive individualized delay discounting task for functional magnetic resonance imaging as described in `Koffarnus et al. 2017 <https://www.journals.elsevier.com/neuroimage/>`_ .The statistical maps from `Koffarnus et al. 2017 <https://www.journals.elsevier.com/neuroimage/>`_ can be downloaded from `neurovault.org <http://neurovault.org/>`_.
 
