@@ -8,4 +8,4 @@ Since the *IDT* is individualized, the out-of-scanner version needs to be perfor
 
 Install
 -------
-The task versions here are out-of-date. Please visit this link for updated instructions, task scripts, and python packages: https://goo.gl/U3vcCy
+Detailed instructions for installation and use can be found in the 'IDT Manual' pdf. 
